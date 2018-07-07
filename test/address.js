@@ -16,10 +16,15 @@ var validbase58 = require('./data/bitcoind/base58_keys_valid.json');
 var invalidbase58 = require('./data/bitcoind/base58_keys_invalid.json');
 
 describe('Address', function() {
+  var pubkeyhash;
+  var buf;
+  var str;
 
-  var pubkeyhash = new Buffer('3c3fa3d4adcaf8f52d5b1843975e122548269937', 'hex');
-  var buf = Buffer.concat([new Buffer([0]), pubkeyhash]);
-  var str = '16VZnHwRhwrExfeHFHGjwrgEMq8VcYPs9r';
+  before(function () {
+    pubkeyhash = new Buffer('3c3fa3d4adcaf8f52d5b1843975e122548269937', 'hex');
+    buf = Buffer.concat([new Buffer([0]), pubkeyhash]);
+    str = '16VZnHwRhwrExfeHFHGjwrgEMq8VcYPs9r';
+  });
 
   it('can\'t build without data', function() {
     (function() {

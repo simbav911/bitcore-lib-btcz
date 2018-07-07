@@ -6,6 +6,9 @@ var Transaction = bitcore.Transaction;
 var PrivateKey = bitcore.PrivateKey;
 
 describe('PublicKeyInput', function() {
+  var privateKey;
+  var address;
+  var destKey;
 
   var utxo = {
     txid: '7f3b688cb224ed83e12d9454145c26ac913687086a0a62f2ae0bc10934a4030f',
@@ -16,11 +19,13 @@ describe('PublicKeyInput', function() {
     confirmations: 104,
     spendable: true
   };
-  var privateKey = PrivateKey.fromWIF('cQ7tSSQDEwaxg9usnnP1Aztqvm9nCQVfNWz9kU2rdocDjknF2vd6');
-  var address = privateKey.toAddress();
-  utxo.address.should.equal(address.toString());
 
-  var destKey = new PrivateKey();
+  before(function () {
+    privateKey = PrivateKey.fromWIF('cQ7tSSQDEwaxg9usnnP1Aztqvm9nCQVfNWz9kU2rdocDjknF2vd6');
+    address = privateKey.toAddress();
+    utxo.address.should.equal(address.toString());
+    destKey = new PrivateKey();
+  });
 
   it('will correctly sign a publickey out transaction', function() {
     var tx = new Transaction();

@@ -14,22 +14,33 @@ var Signature = bitcore.crypto.Signature;
 var MultiSigScriptHashInput = bitcore.Transaction.Input.MultiSigScriptHash;
 
 describe('MultiSigScriptHashInput', function() {
+  var privateKey1;
+  var privateKey2;
+  var privateKey3;
+  var public1;
+  var public2;
+  var public3;
+  var address;
+  var output;
 
-  var privateKey1 = new PrivateKey('KwF9LjRraetZuEjR8VqEq539z137LW5anYDUnVK11vM3mNMHTWb4');
-  var privateKey2 = new PrivateKey('L4PqnaPTCkYhAqH3YQmefjxQP6zRcF4EJbdGqR8v6adtG9XSsadY');
-  var privateKey3 = new PrivateKey('L4CTX79zFeksZTyyoFuPQAySfmP7fL3R41gWKTuepuN7hxuNuJwV');
-  var public1 = privateKey1.publicKey;
-  var public2 = privateKey2.publicKey;
-  var public3 = privateKey3.publicKey;
-  var address = new Address('33zbk2aSZYdNbRsMPPt6jgy6Kq1kQreqeb');
+  before(function () {
+    privateKey1 = new PrivateKey('KwF9LjRraetZuEjR8VqEq539z137LW5anYDUnVK11vM3mNMHTWb4');
+    privateKey2 = new PrivateKey('L4PqnaPTCkYhAqH3YQmefjxQP6zRcF4EJbdGqR8v6adtG9XSsadY');
+    privateKey3 = new PrivateKey('L4CTX79zFeksZTyyoFuPQAySfmP7fL3R41gWKTuepuN7hxuNuJwV');
+    public1 = privateKey1.publicKey;
+    public2 = privateKey2.publicKey;
+    public3 = privateKey3.publicKey;
+    address = new Address('33zbk2aSZYdNbRsMPPt6jgy6Kq1kQreqeb');
 
-  var output = {
-    address: '33zbk2aSZYdNbRsMPPt6jgy6Kq1kQreqeb',
-    txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
-    outputIndex: 0,
-    script: new Script(address),
-    satoshis: 1000000
-  };
+    output = {
+      address: '33zbk2aSZYdNbRsMPPt6jgy6Kq1kQreqeb',
+      txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
+      outputIndex: 0,
+      script: new Script(address),
+      satoshis: 1000000
+    };
+  });
+
   it('can count missing signatures', function() {
     var transaction = new Transaction()
       .from(output, [public1, public2, public3], 2)
