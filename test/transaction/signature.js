@@ -14,22 +14,27 @@ var PrivateKey = bitcore.PrivateKey;
 var errors = bitcore.errors;
 
 describe('TransactionSignature', function() {
+  var simpleUtxoWith100000Satoshis;
+  var getSignatureFromTransaction;
 
   var fromAddress = 'mszYqVnqKoQx4jcTdJXxwKAissE3Jbrrc1';
   var privateKey = 'cSBnVM4xvxarwGQuAfQFwqDg9k5tErHUHzgWsEfD4zdwUasvqRVY';
-  var simpleUtxoWith100000Satoshis = {
-    address: fromAddress,
-    txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
-    outputIndex: 0,
-    script: Script.buildPublicKeyHashOut(fromAddress).toString(),
-    satoshis: 100000
-  };
 
-  var getSignatureFromTransaction = function() {
-    var transaction = new Transaction();
-    transaction.from(simpleUtxoWith100000Satoshis);
-    return transaction.getSignatures(privateKey)[0];
-  };
+  before(function () {
+    simpleUtxoWith100000Satoshis = {
+      address: fromAddress,
+      txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
+      outputIndex: 0,
+      script: Script.buildPublicKeyHashOut(fromAddress).toString(),
+      satoshis: 100000
+    };
+
+    getSignatureFromTransaction = function() {
+      var transaction = new Transaction();
+      transaction.from(simpleUtxoWith100000Satoshis);
+      return transaction.getSignatures(privateKey)[0];
+    };
+  });
 
   it('can be created without the `new` keyword', function() {
     var signature = getSignatureFromTransaction();

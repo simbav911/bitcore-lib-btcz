@@ -14,21 +14,32 @@ var Signature = bitcore.crypto.Signature;
 var MultiSigInput = bitcore.Transaction.Input.MultiSig;
 
 describe('MultiSigInput', function() {
+  var privateKey1;
+  var privateKey2;
+  var privateKey3;
+  var public1;
+  var public2;
+  var public3;
+  var address;
+  var output;
 
-  var privateKey1 = new PrivateKey('KwF9LjRraetZuEjR8VqEq539z137LW5anYDUnVK11vM3mNMHTWb4');
-  var privateKey2 = new PrivateKey('L4PqnaPTCkYhAqH3YQmefjxQP6zRcF4EJbdGqR8v6adtG9XSsadY');
-  var privateKey3 = new PrivateKey('L4CTX79zFeksZTyyoFuPQAySfmP7fL3R41gWKTuepuN7hxuNuJwV');
-  var public1 = privateKey1.publicKey;
-  var public2 = privateKey2.publicKey;
-  var public3 = privateKey3.publicKey;
-  var address = new Address('33zbk2aSZYdNbRsMPPt6jgy6Kq1kQreqeb');
+  before(function () {
+    privateKey1 = new PrivateKey('KwF9LjRraetZuEjR8VqEq539z137LW5anYDUnVK11vM3mNMHTWb4');
+    privateKey2 = new PrivateKey('L4PqnaPTCkYhAqH3YQmefjxQP6zRcF4EJbdGqR8v6adtG9XSsadY');
+    privateKey3 = new PrivateKey('L4CTX79zFeksZTyyoFuPQAySfmP7fL3R41gWKTuepuN7hxuNuJwV');
+    public1 = privateKey1.publicKey;
+    public2 = privateKey2.publicKey;
+    public3 = privateKey3.publicKey;
+    address = new Address('33zbk2aSZYdNbRsMPPt6jgy6Kq1kQreqeb');
 
-  var output = {
-    txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
-    outputIndex: 0,
-    script: new Script("5221025c95ec627038e85b5688a9b3d84d28c5ebe66e8c8d697d498e20fe96e3b1ab1d2102cdddfc974d41a62f1f80081deee70592feb7d6e6cf6739d6592edbe7946720e72103c95924e02c240b5545089c69c6432447412b58be43fd671918bd184a5009834353ae"),
-    satoshis: 1000000
-  };
+    output = {
+      txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
+      outputIndex: 0,
+      script: new Script("5221025c95ec627038e85b5688a9b3d84d28c5ebe66e8c8d697d498e20fe96e3b1ab1d2102cdddfc974d41a62f1f80081deee70592feb7d6e6cf6739d6592edbe7946720e72103c95924e02c240b5545089c69c6432447412b58be43fd671918bd184a5009834353ae"),
+      satoshis: 1000000
+    };
+  });
+
   it('can count missing signatures', function() {
     var transaction = new Transaction()
         .from(output, [public1, public2, public3], 2)
