@@ -218,7 +218,7 @@ describe.only('Address', function() {
       }
     });
 
-    it.skip('addresses with whitespace are validated correctly', function() {
+    it('addresses with whitespace are validated correctly', function() {
       var ws = '  \r \t    \n t1boxWWuUs3dVUFeUMiPqCdwD4QtL1AMx9G \t \n            \r';
       var error = Address.getValidationError(ws);
       should.not.exist(error);
@@ -523,7 +523,8 @@ describe.only('Address', function() {
       return new Address(1);
     }).to.throw(TypeError);
   });
-  it.skip('can roundtrip from/to a object', function() {
+
+  it('can roundtrip from/to a object', function() {
     var address = new Address(P2SHLivenet[0]);
     expect(new Address(address.toObject()).toString()).to.equal(P2SHLivenet[0]);
   });
