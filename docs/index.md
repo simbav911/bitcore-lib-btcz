@@ -1,4 +1,4 @@
-# Bitcore v0.15.0
+# Bitcore BTCZ v1.0.2
 
 ## Principles
 
