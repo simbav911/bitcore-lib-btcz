@@ -30,7 +30,7 @@ describe('MultiSigInput', function() {
     public1 = privateKey1.publicKey;
     public2 = privateKey2.publicKey;
     public3 = privateKey3.publicKey;
-    address = new Address('33zbk2aSZYdNbRsMPPt6jgy6Kq1kQreqeb');
+    address = new Address('t3LsCkMzaXsQyC4vFKphDsW51aVCq7cUGag');
 
     output = {
       txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
