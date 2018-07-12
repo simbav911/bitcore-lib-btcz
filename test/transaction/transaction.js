@@ -22,7 +22,7 @@ var errors = bitcore.errors;
 
 var transactionVector = require('../data/tx_creation');
 
-describe.only('Transaction', function() {
+describe('Transaction', function() {
   var testTransaction;
   var simpleUtxoWith100000Satoshis;
   var simpleUtxoWith1000000Satoshis;

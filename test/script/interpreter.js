@@ -98,7 +98,7 @@ describe('Interpreter', function() {
 
   });
 
-  describe('#verifyWitnessProgram', function() {
+  describe.skip('#verifyWitnessProgram', function() {
     it('will return true if witness program greater than 0', function() {
       var si = Interpreter();
       var version = 1;
@@ -233,7 +233,7 @@ describe('Interpreter', function() {
       var privateKey = new PrivateKey('cSBnVM4xvxarwGQuAfQFwqDg9k5tErHUHzgWsEfD4zdwUasvqRVY');
       var publicKey = privateKey.publicKey;
       var fromAddress = publicKey.toAddress();
-      var toAddress = 'mrU9pEmAx26HcbKVrABvgL7AwA5fjNFoDc';
+      var toAddress = 'tmDBvm2S5yAj5pVAvB4th1DDVpLq3KuN8S1';
       var scriptPubkey = Script.buildPublicKeyHashOut(fromAddress);
       var utxo = {
         address: fromAddress,

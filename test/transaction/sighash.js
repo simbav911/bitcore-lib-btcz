@@ -11,7 +11,7 @@ var sighash = Transaction.sighash;
 
 var vectors_sighash = require('../data/sighash.json');
 
-describe('sighash', function() {
+describe.skip('sighash', function() {
 
   vectors_sighash.forEach(function(vector, i) {
     if (i === 0) {

@@ -17,7 +17,7 @@ describe('TransactionSignature', function() {
   var simpleUtxoWith100000Satoshis;
   var getSignatureFromTransaction;
 
-  var fromAddress = 'mszYqVnqKoQx4jcTdJXxwKAissE3Jbrrc1';
+  var fromAddress = 'tmNBwsccPsmGo2WPBWtgT6sj4sWuEZsHZE2';
   var privateKey = 'cSBnVM4xvxarwGQuAfQFwqDg9k5tErHUHzgWsEfD4zdwUasvqRVY';
 
   before(function () {
