@@ -14,11 +14,11 @@ Bitcoin is a powerful new peer-to-peer platform for the next generation of finan
 ## Get Started
 
 ```
-npm install bitcore-lib
+npm install bitcore-lib-btcz
 ```
 
 ```
-bower install bitcore-lib
+bower install bitcore-lib-btcz
 ```
 
 ## Documentation
@@ -75,8 +75,8 @@ To verify signatures, use the following PGP keys:
 ## Development & Tests
 
 ```sh
-git clone https://github.com/bitpay/bitcore-lib
-cd bitcore-lib
+git clone https://github.com/bitcoinz-dev-tools/bitcore-lib-btcz
+cd bitcore-lib-btcz
 npm install
 ```
 
@@ -94,3 +94,4 @@ or create a test coverage report (you can open `coverage/lcov-report/index.html`
 Code released under [the MIT license](https://github.com/bitpay/bitcore-lib/blob/master/LICENSE).
 
 Copyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
+Copyright 2017-2021 The BitcoinZ Community
