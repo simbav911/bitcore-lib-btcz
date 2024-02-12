@@ -56,15 +56,15 @@
       "email": "luwei.here@gmail.com"
     }
   ],
-  "dependencies": {
-    "blake2b": "https://github.com/BitGo/blake2b#6268e6dd678661e0acc4359e9171b97eb1ebf8ac",
+"dependencies": {
+    "blake2b": "git+https://github.com/BLAKE2/libb2.git",
     "bn.js": "=4.11.8",
     "bs58": "=4.0.1",
     "buffer-compare": "=1.1.1",
     "elliptic": "=6.5.4",
     "inherits": "=2.0.1",
     "lodash": "=4.17.21"
-  },
+},
   "devDependencies": {
     "bitcore-build": "https://github.com/bitpay/bitcore-build.git#d4e8b2b2f1e2c065c3a807dcb6a6250f61d67ab3",
     "brfs": "^1.2.0",
